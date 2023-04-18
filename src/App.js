@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import Navbar from "./Components/Navbar.js";
+import TextForm from "./Components/TextForm.js";
+import About from "./Components/About";
+// import { Switch } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
+import { Route } from "react-router-dom";
+import { Routes } from "react-router-dom";
+import {Link} from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    /*<Navbar title="TextUtils" AboutTextUtils="About" />*/
+    <>
+       <Navbar title="TextUtils" AboutTextUtils="About" /> 
+
+      <div className="container my-3">
+        {/* <TextForm email="ny@srmist.edu.in"  heading= "Enter the text to analyse"/> */}
+       
+        <Router>
+          
+          <Routes>
+            
+          <Route path="/" element={<TextForm email="ny@srmist.edu.in"  heading= "Enter the text to analyse" />} /> 
+          <Route path="/about" element={<About />} /> 
+          </Routes>
+        </Router>
+      </div>
+    </>
   );
 }
 
